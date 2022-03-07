@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button {
+    @apply inline-block text-base font-bold text-center border-2 rounded-full;
+  }
+  .button.blue {
+    @apply text-white bg-blue-500 border-blue-500;
+  }
+  .button.blue:hover {
+    @apply bg-blue-400 border-blue-400;
+  }
+  .button.blue.hollow {
+    @apply text-blue-500 bg-transparent border-blue-400;
+  }
+  .button.blue.hollow:hover {
+    @apply text-blue-500 bg-transparent bg-blue-50;
+  }
+}
