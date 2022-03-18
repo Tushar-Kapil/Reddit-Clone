@@ -22,11 +22,13 @@ export default function PostPage() {
   const router = useRouter();
   const { identifier, sub, slug } = router.query;
 
-  const { data: post, error } = useSWR(
-    identifier && slug ? `/posts/${identifier}/${slug}` : null
-  );
+  const {
+    data: post,
+    error,
+    mutate,
+  } = useSWR(identifier && slug ? `/posts/${identifier}/${slug}` : null);
 
-  const { data: comments, mutate } = useSWR(
+  const { data: comments } = useSWR(
     identifier && slug ? `/posts/${identifier}/${slug}/comments` : null
   );
 

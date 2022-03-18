@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import PostCard from "../../components/PostCard";
 
 export default function User() {
@@ -25,7 +25,11 @@ export default function User() {
             {data.submissions.map((submission) => {
               if (submission.type === "Post") {
                 return (
-                  <PostCard key={submission.identifier} post={submission} />
+                  <PostCard
+                    key={submission.identifier}
+                    post={submission}
+                    mutate={mutate}
+                  />
                 );
               } else {
                 const comment = submission;

@@ -12,7 +12,7 @@ import { useAuthState } from "../context/auth";
 dayjs.extend(relativeTime);
 
 export default function Home() {
-  const { data: posts } = useSWR("/posts");
+  const { data: posts, mutate } = useSWR("/posts");
   const { data: topSubs } = useSWR("/misc/top-subs");
 
   const { authenticated } = useAuthState();
@@ -27,7 +27,11 @@ export default function Home() {
         {/* Posts */}
         <div className=" w-160">
           {posts?.map((post) => (
-            <PostCard post={post} key={post.identifier}></PostCard>
+            <PostCard
+              post={post}
+              key={post.identifier}
+              mutate={mutate}
+            ></PostCard>
           ))}
         </div>
         {/* SideBar */}

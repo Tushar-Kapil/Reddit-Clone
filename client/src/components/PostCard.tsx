@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Axios from "axios";
 import classNames from "classnames";
+import { mutate } from "swr";
 dayjs.extend(relativeTime);
 
 export default function PostCard({
@@ -20,6 +21,7 @@ export default function PostCard({
     createdAt,
     userVote,
   },
+  mutate,
 }) {
   const vote = async (value) => {
     try {
@@ -29,7 +31,7 @@ export default function PostCard({
         value,
       });
 
-      console.log(res.data);
+      mutate();
     } catch (error) {
       console.log(error);
     }
