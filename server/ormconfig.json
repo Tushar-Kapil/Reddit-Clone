@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  " host": "localhost",
+  " port": 5000,
+  " username": "tushar",
+  "password": "",
+  "database": "reddit",
+  "synchronize": true,
+  "logging": false,
+  "entities": ["src/entity/**/*{.ts,.js}"],
+  "migrations": ["src/migration/**/*{.ts,.js}"],
+  "subscribers": ["src/subscriber/**/*{.ts,.js}"],
+  "seeds": ["src/seeds/**/*{.ts,.js}"],
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "src/migration",
+    "subscribersDir": "src/subscriber"
+  }
+}
